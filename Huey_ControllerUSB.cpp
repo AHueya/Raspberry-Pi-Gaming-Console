@@ -6,8 +6,9 @@
  * Lecture: Dennis Dahlquist
  * Lab: Eric Telles
  *
- * The button will print 1 to the master when the button is
- * pressed
+ * The program will send a "1" (Increment / Decrement)to the 
+ * master when myButton is pressed. Additionally, the program
+ * will send a "2" (QUIT) to the master when myButton2 is pressed.
  *
  ***************************************************************/
 
