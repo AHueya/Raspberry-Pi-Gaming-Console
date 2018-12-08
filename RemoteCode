@@ -1,0 +1,27 @@
+#include "mbed.h" //Include library
+Serial pc(SERIAL_TX, SERIAL_RX); //Declare the ports for USB
+
+DigitalIn myButton(PB_4); //Button on pin 4
+DigitalIn myButton2(PB_5); //Button on pin 5
+DigitalOut myLED(LED1); //Output on LED on board
+
+int main() {
+
+myButton.mode(PullDown);        //Pull down resistor, default state 0
+myButton2.mode(PullDown);       //Pull down resistor, default state 0
+int reset = 0;
+
+while(1) {
+    if(myButton && reset == 0){ //If my button is on and reset is off
+        pc.printf("1");
+        wait(0.15);             //Wait 0.15 second
+        reset = 1;              //Reset = 1
+    }
+    else if(myButton2){         //If my button2 is on, end program
+        pc.printf("2");
+    }
+    else if(!myButton) {        //If the button isn't pressed
+        reset = 0;              //Reset = off
+    }
+}
+}
