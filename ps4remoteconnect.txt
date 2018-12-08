@@ -1,0 +1,21 @@
+#-------------------------------------------------------------------------------------
+# CpE 185 - Final Project: Raspberry Pi Game Code
+# Taranjit Sandhu
+# 
+#
+# Lecture: Dennis Dahlquist
+# Lab: Eric Telles
+# This is a list of commands in order used on the terminal to connect to the raspberry 
+# pi via bluetooth with the ps4 remote
+#-------------------------------------------------------------------------------------
+sudo apt-get update
+sudo apt-get upgrade
+sudo pip3 install ds4drv
+sudo wget https://raw.githubusercontent.com/chrippa/ds4drv/master/udev/50-ds4drv.rules -O /etc/udev/rules.d/50-ds4drv.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+sudo ds4drv --led 000008
+sudo nano /etc/rc.local
+# add this in the file above right before exit 0 "/usr/local/bin/ds4drv --hidraw --led 000008 &"
+# makes it so the ps4 remote can connect everytime upon startup
+sudo apt-get install joystick
