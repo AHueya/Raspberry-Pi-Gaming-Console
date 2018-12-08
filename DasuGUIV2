@@ -1,0 +1,19 @@
+#This version contains keyboard input. 
+import tkinter
+import sys
+
+root = tkinter.Tk()
+root.geometry("200x200")
+root.title("Incrementer")
+#root.configure(background = "black")
+#root.configure(foreground = "yellow")
+
+counter = tkinter.IntVar()
+
+def onClick(event=None):
+    counter.set(counter.get() + 1
+tkinter.Label(root, textvariable=counter).pack()
+tkinter.Button(root, text="Increase", command=onClick, fg="black", bg = "white").pack()
+root.bind("<Key>", onClick)
+
+root.mainloop()
